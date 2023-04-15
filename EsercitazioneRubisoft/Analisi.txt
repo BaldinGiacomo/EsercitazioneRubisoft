@@ -1,0 +1,43 @@
+La Rubisoft, azienda leader nei giochi per pc e smartphone, ci chiede di realizzare il nuovo gioco “Scontro reale”.
+Il gioco prevede di solito partite con due utenti, ognuno con 3 torri da difendere. Il primo giocatore a distruggere la torre centrale avrà vinto.
+Per distruggere le tre torri avversarie ogni giocatore possiede delle carte e deve scegliere quali utilizzare per sovrastare il nemico.
+
+Vengono individuate le seguenti entità con i propri attributi:
+
+1)Utente{
+    -nickname (PK) Varchar 10: Nickname con cui si identifica ogni giocatore online;
+    -password text: Password dell'account immessa durante la registrazione;
+    -e-mail text: Email con cui si è registrati;
+    -nome Varchar(20): Nome della persona;
+    -cognome Varchar(20): Cognome della persona;
+    -dataNascita Date: dataNascita della persona;
+    -livello int: Livello raggiunto dall'Utente.
+}
+
+2)Partita{
+    -codicePartita (PK) int: Codice identificativo della partita;
+    -statoTorri boolean: Stato delle 6 torri (distrutte o no);
+    -durata time: Durata della partita;
+}
+
+3)Carta{
+    -idCarta (PK) int: id identificativo di ogni carta;
+    -Effetto text: Descrizione della Carta;
+}
+
+Associazioni{
+    Utente-Partita N:N
+    Utente-Carta N:N
+}
+ 
+
+Relazioni{
+    Giocare(Utente-Partita){
+        -Esito boolean: Vittoria o sconfitta.
+    }
+
+    Possedere(Utente-Carta){}
+}
+
+Non ho fatto particolari ulteriori assunzioni rispetto alla richiesta data.
+
